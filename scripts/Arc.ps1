@@ -40,7 +40,7 @@ function Get-CustomerInfo {
     # matchingRow returns multiple objects if there are multiple sql instances on the server
     # assumption: server hostname is unique per customer
     try {
-        $matchingRow = $cmdbData | Where-Object { $_.OperatingSystem_ForeignName -eq $hostname}
+        $matchingRow = $cmdbData | Where-Object { $_.Server_Unique_Identifier -eq $hostname}
         $customer = $matchingRow[0]
     }
     catch {
