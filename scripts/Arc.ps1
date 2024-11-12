@@ -2,6 +2,8 @@ $global:scriptPath = $myinvocation.mycommand.definition
 
 $ErrorActionPreference = 'Stop'
 
+$csvPath = "./test_cmdb.csv"
+
 function Restart-AsAdmin {
     $pwshCommand = "powershell"
     if ($PSVersionTable.PSVersion.Major -ge 6) {
@@ -59,7 +61,7 @@ function Get-CustomerInfo {
     return $customerInfo
 }
 
-$customerInfo = Get-CustomerInfo -csvPath "./test_cmdb.csv" -hostname $env:COMPUTERNAME
+$customerInfo = Get-CustomerInfo -csvPath $csvPath -hostname $env:COMPUTERNAME
 
 
 try {
